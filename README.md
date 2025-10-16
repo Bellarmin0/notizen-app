@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Flask Notizen-App mit SQLite
 
 Eine Webanwendung, um einfache Textnotizen mit **Titel und Inhalt** zu erstellen, anzuzeigen, zu bearbeiten und zu löschen.  
@@ -31,3 +32,6 @@ http://127.0.0.1:5000
 - **Python 3.10 oder neuer** installiert  
 - **Flask** und **SQLite3** müssen verfügbar sein  
 
+=======
+# notizen-app
+>>>>>>> cf46b967552bfceb579e12b87376e3719bd581ec
