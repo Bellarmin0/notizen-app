@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-white w-full max-w-2xl p-6 sm:p-8 rounded-2xl shadow-xl flex-1">
+        <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-blue-700"> Meine Notizen</h1>
+        
+    <div class="flex flex-col sm:flex-row justify-end sm:justify-between mb-4 gap-2">
+        <a class="bg-blue-500 hover:bg-blue-600 active:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition"  href="{{ url_for('notiz_hinzufuegen') }}">Neue Notiz erstellen</a>
+    </div>
+        {% if notizen %}
+            <ul class="space-y-3">
+                {% for note in notizen %}
+                    <li class="bg-blue-100 border border-blue-200 p-4 rounded-lg flex justify-between items-center">
+                        <h2 class="text-lg font-semibold text-blue-800 break-words">{{ note.title }}</h2>
+                        <span class="text-base">{{ note.text }}</span> 
+                        <div class="flex space-x-2 mt-3">
+                            <a  class="bg-blue-400 hover:bg-blue-600 active:bg-blue-800 text-white font-medium px-3 py-1 rounded-md text-sm text-center flex-1 sm:flex-none" href="{{ url_for('notiz_bearbeiten', note_id=note.id) }}" >Bearbeiten</a>
+                            <form action="{{ url_for('notiz_loeschen', note_id=note.id) }}" method="POST" class="flex-1 sm:flex-none">
+                                <button type="submit"  class="w-full bg-red-600 hover:bg-red-700 active:bg-red-800 text-white px-3 py-1 rounded-md text-sm">Löschen</button>
+                            </form>   
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center text-gray-700">Keine Notizen vorhanden.</p>
+        {% endif %}
+    </div>
+{% endblock %}

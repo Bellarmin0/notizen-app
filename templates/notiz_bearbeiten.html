@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="bg-white w-full max-w-lg p-6 sm:p-8 rounded-2xl shadow-xl">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-center mb-6 text-blue-700">Notiz bearbeiten</h1>
+        <form method="POST" class="space-y-4">
+            <input type="text" name="note_title" value="{{ note.title }}" required
+            class="w-full border border-blue-300 rounded-lg p-3 text-base focus:ring-2 focus:ring-blue-400">
+            <textarea class="w-full h-32 sm:h-40 border border-blue-300 rounded-lg p-3 text-base focus:ring-2 focus:ring-blue-400" name="note_text" required>{{ note.text }}</textarea>
+            <button class="w-full bg-blue-500 hover:bg-blue-600 active:bg-blue-800 text-white font-medium py-2 rounded-lg transition" type="submit" class="btn">Änderungen speichern</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">Zurück zur Übersicht</a>
+    </div>
+
+{% endblock %}
